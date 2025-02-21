@@ -16,7 +16,7 @@ This repo contains a machine learning model trained on a dataset of CO2 emission
   
     📂 Dataset
 
- --- Ford Focus Vehicle Data:
+     --- Ford Focus Vehicle Data:
 
 🚗 model: Vehicle model (Focus)
 
@@ -36,7 +36,7 @@ This repo contains a machine learning model trained on a dataset of CO2 emission
 
 🚀 engineSize: Engine size (liters)
 
---- CO2 Emissions and Fuel Consumption Data:
+    --- CO2 Emissions and Fuel Consumption Data:
 
 📅 Model_Year: Manufacturing year
 
