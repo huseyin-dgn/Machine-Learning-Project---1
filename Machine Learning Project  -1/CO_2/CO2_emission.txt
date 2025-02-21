@@ -1,0 +1,96 @@
+📌 Kodun Bölümleri ve Açıklamaları
+
+1️⃣ Veri Yükleme ve İnceleme
+
+df = pd.read_csv("CO2_emission.csv") → CO2 emisyon verisini yükler.
+df.head() → İlk 5 satırı gösterir.
+df.shape → Veri setinin boyutunu verir.
+df.isna().sum() → Eksik veri olup olmadığını kontrol eder.
+
+2️⃣ Veri Görselleştirme 🖼️
+
+Pair Plot: sns.pairplot(df , diag_kind="kde")
+Değişkenler arasındaki ilişkileri incelemek için kullanılır.
+Korelasyon Matrisi: sns.heatmap(df.corr(numeric_only=True), annot=True)
+Değişkenler arasındaki ilişkileri sayısal olarak gösterir.
+
+Scatter Plotlar:
+Engine Size, Cylinders, Fuel Consumption, CO2 Emissions arasındaki ilişkileri analiz eder.
+
+3️⃣ Veri Ön İşleme 🔧
+
+df.drop("Model_Year", axis=1) → Model yılı değişkeni çıkarılır.
+Etiket Kodlama (Label Encoding):
+LabelEncoder ile kategorik değişkenler sayısal değerlere dönüştürülür.
+
+4️⃣ Polynomial Regression (Polinom Regresyon) 📈
+
+PolynomialFeatures(degree=2, include_bias=True) → 2. dereceden polinom özellikleri oluşturur.
+LinearRegression() → Polinom regresyon modeli oluşturulur ve eğitilir.
+mean_absolute_error, mean_squared_error, r2_score → Modelin doğruluğu ölçülür.
+
+5️⃣ Model Performans Analizi 📊
+
+Polinom Derecesi Belirleme:
+1’den 11’e kadar farklı polinom dereceleri için model test edilir.
+En düşük RMSE değerine sahip polinom seçilir.
+
+Model Değerlendirme:
+
+Gerçek vs. Tahmin edilen değerler scatter plot ile görselleştirilir.
+Hata Dağılımı Histogramı oluşturulur.
+Model metrikleri (MAE, RMSE, R²) bar grafikte gösterilir.
+
+🎯 Sonuç ve Yorumlar
+✅ Polinom regresyon, CO2 emisyonlarını tahmin etmek için kullanılmıştır.
+✅ Polinom derecesi, modelin performansını doğrudan etkiler.
+✅ Veri görselleştirmeleri, hangi değişkenlerin CO2 emisyonlarıyla daha güçlü ilişkilere sahip olduğunu anlamamıza yardımcı olur.
+✅ Hata analizleri, modelin ne kadar başarılı olduğunu değerlendirir.
+
+Bu modeli daha da geliştirmek için 🔥:
+
+Farklı regresyon algoritmaları (Decision Tree, Random Forest) ile karşılaştırılabilir.
+Daha fazla özellik eklenerek model iyileştirilebilir.
+Veri kümesi genişletilerek daha doğru tahminler elde edilebilir.
+
+Neden Polinom Regresyon Kullandık? 🤔📈
+
+Polinom regresyonu tercih etmemizin başlıca nedenleri şunlardır:
+
+1️⃣ Doğrusal Olmayan (Non-Linear) İlişkileri Modellemek
+
+CO2 emisyonları ile motor hacmi, silindir sayısı ve yakıt tüketimi gibi değişkenler arasında doğrusal olmayan ilişkiler olabilir.
+📌 Örnek:
+
+Motor hacmi arttıkça CO2 emisyonu artar ama bu artış sabit hızda olmayabilir.
+Küçük motor hacminde emisyon artışı düşükken, büyük motorlarda bu artış hızlanabilir.
+Polinom regresyon, bu tür karmaşık ilişkileri daha iyi yakalayabilir. ✅
+
+2️⃣ Daha Doğru Tahminler Yapmak 🎯
+Doğrusal regresyon modeli bazı durumlarda veriyi yeterince iyi temsil edemez.
+
+Eğer verinin dağılımı bükülmeli (curved) bir yapıdaysa, doğrusal regresyon yeterli olmayabilir.
+Polinom regresyon, veriye daha iyi uyum sağlayarak tahmin hatalarını azaltabilir.
+
+📌 Örneğin:
+🚗 Motor Hacmi → CO2 Emisyonu ilişkisi doğrusal olmayabilir. Bu yüzden 2. veya 3. dereceden polinom daha iyi sonuç verebilir.
+
+3️⃣ Modelin Esnekliğini Artırmak 🔄
+Polinom derecesini artırarak modelin esnekliğini kontrol edebiliriz:
+
+Derece düşükse (d=1, d=2) → Model veriyi tam yakalayamaz (underfitting).
+Derece çok yüksekse (d>5) → Model çok karmaşık hale gelir ve aşırı öğrenme (overfitting) yaşanabilir.
+Bu yüzden kodda farklı polinom derecelerini deneyerek en uygun olanı seçiyoruz! 🏆
+
+4️⃣ Performans Analizi ve Optimizasyon 🛠️
+Kodda 1’den 11’e kadar farklı polinom derecelerini test ediyoruz:
+✅ RMSE değerini analiz ederek hangi polinomun en düşük hata ile tahmin yaptığını belirliyoruz.
+✅ Bu sayede ne çok basit ne de aşırı karmaşık bir model oluşturuyoruz.
+
+Sonuç: Polinom Regresyon Bize Ne Kazandırdı? 🚀
+🔹 CO2 emisyonları ile değişkenler arasındaki doğrusal olmayan ilişkileri daha iyi modelledik.
+🔹 Modelin tahmin gücünü artırarak daha doğru sonuçlar elde ettik.
+🔹 Polinom derecesini optimize ederek, modelin aşırı öğrenmesini önledik.
+
+✅ Sonuç olarak: Polinom regresyon, CO2 emisyonlarını tahmin etmede doğrusal regresyondan daha iyi performans gösterdi! 💡
+

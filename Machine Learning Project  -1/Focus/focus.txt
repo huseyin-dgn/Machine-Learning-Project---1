@@ -1,0 +1,69 @@
+Araç Fiyat Tahmini İçin Polinom Regresyon Kullanımı 🚗💰
+
+Bu çalışma, araç fiyatlarını tahmin etmek için Polinom Regresyon (Polynomial Regression) modelini kullanarak veri analizi ve modelleme süreçlerini içermektedir.
+
+📌 Veri Keşfi ve Görselleştirme
+İlk olarak, veriyi anlamak ve ilişkileri incelemek için çeşitli görselleştirmeler yapıldı:
+
+1️⃣ Araç fiyatlarının dağılımı (Histogram) 📊
+
+Araç fiyatlarının çoğunluğu belirli bir aralıkta toplanmış.
+KDE çizgisi ile fiyat dağılımı daha iyi analiz edildi.
+2️⃣ Motor Hacmi ve Yakıt Verimliliği (Scatter Plot) 🚘⛽
+
+Motor hacmi büyüdükçe yakıt tüketimi genellikle artıyor.
+Ancak bu ilişki doğrusal olmayabilir, bu yüzden polinom regresyon kullanıldı.
+3️⃣ Yakıt Türüne Göre Araç Dağılımı (Pasta Grafiği) 🔥🛢️
+
+Farklı yakıt türlerinin veri setindeki dağılımı görselleştirildi.
+4️⃣ Kilometre ve Fiyat İlişkisi (Scatter Plot) 🚙📉
+
+Araç kilometresi arttıkça fiyatın düştüğü görüldü.
+Ancak bazı araçlar düşük kilometrede de ucuz olabiliyor.
+5️⃣ Çok Değişkenli İlişkilerin İncelenmesi (Pair Plot) 🔍
+
+Fiyat, kilometre, motor hacmi ve yakıt verimliliği arasındaki ilişkiler incelendi.
+
+📌 Veri Ön İşleme ve Dönüştürme
+
+Kategorik değişkenler (model, yıl, şanzıman, yakıt türü vb.) sayısal hale getirildi.
+Label Encoding yöntemi kullanılarak metin verileri modele uygun hale getirildi.
+Polynomial Features (Polinom Özellik Dönüştürme) kullanılarak derece = 2 için yeni özellikler oluşturuldu.
+
+📌 Model Eğitimi (Polinom Regresyon) 🎓
+
+Veriyi %70 eğitim - %30 test olarak ikiye böldük.
+Linear Regression (Doğrusal Regresyon) ile polinom dönüşüm uygulanmış özellikler üzerinde model eğitildi.
+İlk modelin performansı R² skoru ile değerlendirildi.
+
+📌 İlk Modelin Performansı:
+✅ R² skoru hesaplandı. (Değer 1'e ne kadar yakınsa model o kadar iyi!)
+
+📌 En İyi Polinom Derecesini Bulma 🏆
+
+1’den 7’ye kadar farklı polinom dereceleri test edildi.
+Eğitim (train) ve test (test) RMSE değerleri hesaplandı.
+En uygun polinom derecesi görselleştirme ile belirlendi.
+
+📌 Sonuç:
+✅ En iyi polinom derecesi: 3 (Daha yüksek değerler overfitting'e yol açabilir.)
+
+📌 Final Model (Polinom Derecesi = 3) 🎯
+
+Polinom dönüşümü tekrar uygulandı (derece = 3).
+Model yeniden eğitildi ve test edildi.
+Tahmin edilen ve gerçek fiyatlar karşılaştırıldı.
+
+📌 Final Model Performansı:
+
+✅ MAE (Ortalama Mutlak Hata) : 📉 Daha düşük, daha iyi!
+✅ RMSE (Kök Ortalama Hata) : 📉 Daha düşük, daha iyi!
+✅ R² skoru : 📈 Daha yüksek, daha iyi!
+
+🚀 Sonuç ve Çıkarımlar
+
+🔹 Polinom regresyon, araç fiyat tahmini için doğrusal regresyondan daha iyi sonuç verdi.
+🔹 Polinom derecesi 3 seçildi, çünkü hem düşük hata verdi hem de aşırı öğrenme (overfitting) olmadı.
+🔹 Kilometre, motor hacmi ve yakıt verimliliği gibi değişkenler, fiyat tahmininde önemli rol oynadı.
+
+✅ Sonuç: Polinom regresyon, araç fiyatlarını tahmin etmek için başarılı bir model sundu! 🎉
